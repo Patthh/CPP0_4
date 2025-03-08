@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++
+CPP = clang++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
 SRCS = contact.cpp  contact.hpp  phonebook.cpp  phonebook.hpp
