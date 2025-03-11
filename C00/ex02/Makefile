@@ -6,7 +6,7 @@
 #    By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/21 18:14:54 by pracksaw          #+#    #+#              #
-#    Updated: 2025/03/09 17:59:02 by pracksaw         ###   ########.fr        #
+#    Updated: 2025/03/11 20:24:13 by pracksaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ NAME                    =       tests
 
 #==============================================================================#
 ## FILES 📄
-SRC_FILES               =       account.cpp
-HDR_FILES               =       account.hpp Account.hpp
+SRC_FILES               =       tests.cpp Account.cpp
+HDR_FILES               =       Account.hpp Account.hpp
 OBJ_FILES               =       $(SRC_FILES:.cpp=.o)
 
 #==============================================================================#
