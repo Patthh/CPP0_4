@@ -6,7 +6,7 @@
 /*   By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:16:55 by pracksaw          #+#    #+#             */
-/*   Updated: 2025/03/12 23:01:55 by pracksaw         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:25:31 by pracksaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Contact{
 	public:
 		Contact(void);
 		~Contact(void);
-
+ 
 		int			checkPrintable(str s);
 		str			getFirst_name(void);
 		str			getLast_name(void);
