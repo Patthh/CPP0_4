@@ -6,7 +6,7 @@
 /*   By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:16:50 by pracksaw          #+#    #+#             */
-/*   Updated: 2025/03/12 21:43:54 by pracksaw         ###   ########.fr       */
+/*   Updated: 2025/03/12 23:03:11 by pracksaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,35 @@ Contact::~Contact(void) {
 	return ;
 }
 
-void clearScreenANSI(void) {
+void PhoneBook::clearScreenANSI(void) {
 	std::cout << "\033[2J\033[1;1H";
 }
 
-void printPrompt(void) {
+void PhoneBook::printPrompt(void) {
 	std::cout << BLUE << "📞 " << GREEN << "PhoneBook" << YELLOW << " 📒 " << MAGENTA << ">> : " << RESET;
 }
 
 
-void exitPhoneBook(void) {
+void PhoneBook::exitPhoneBook(void) {
     std::cout << RED << "Exiting Phonebook..." << RESET << std::endl;
 	exit(0);
 }
 
 int	main(void) {
-	PhoneBook	phone_book;
+	PhoneBook	phonebook;
 	str		line;
 
-	clearScreenANSI();
-	printPrompt();
+	phonebook.clearScreenANSI();
+	phonebook.printPrompt();
 	while (std::getline(std::cin, line))
 	{
 		if (line == "ADD")
-			std::cout << "ADD" << std::endl;// phone_book.add();
+			std::cout << "ADD" << std::endl;// phonebook.add();
 		else if (line == "SEARCH")
-			std::cout << "SEARCH" << std::endl;// phone_book.search();
+			std::cout << "SEARCH" << std::endl;// phonebook.search();
 		else if (line == "EXIT")
-			exitPhoneBook();
-		printPrompt();
+			phonebook.exitPhoneBook();
+		phonebook.printPrompt();
 	}
 	std::cout << std::endl;
 	return (0);

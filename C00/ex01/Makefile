@@ -6,7 +6,7 @@
 #    By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/21 18:16:33 by pracksaw          #+#    #+#              #
-#    Updated: 2025/03/09 17:52:40 by pracksaw         ###   ########.fr        #
+#    Updated: 2025/03/12 21:47:18 by pracksaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME                    =       phonebook
 #==============================================================================#
 ## FILES 📄
 SRC_FILES               =       contact.cpp phonebook.cpp
-HDR_FILES               =       contact.hpp phonebook.hpp
+HDR_FILES               =       contact.hpp phonebook.hpp colors.hpp
 OBJ_FILES               =       $(SRC_FILES:.cpp=.o)
 
 #==============================================================================#
