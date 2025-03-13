@@ -6,7 +6,7 @@
 #    By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/21 18:16:33 by pracksaw          #+#    #+#              #
-#    Updated: 2025/03/13 19:26:03 by pracksaw         ###   ########.fr        #
+#    Updated: 2025/03/13 19:30:56 by pracksaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,11 +56,7 @@ $(NAME):                        $(OBJ_FILES)
 				@$(CXX) $(CXXFLAGS) -c $< -o $@
 				@if [ $(COMPILED_FILES) -eq $(TOTAL_FILES) ]; then echo; fi
 
-contact.o: contact.cpp contact.hpp
-				@echo "$(CYAN)🔄 Compiling: contact.cpp$(NC)"
-				@$(CXX) $(CXXFLAGS) -c contact.cpp -o contact.o
-
-phonebook.o: phonebook.cpp phonebook.hpp contact.hpp
+phonebook.o: phonebook.cpp phonebook.hpp
 				@echo "$(CYAN)🔄 Compiling: phonebook.cpp$(NC)"
 				@$(CXX) $(CXXFLAGS) -c phonebook.cpp -o phonebook.o
 
