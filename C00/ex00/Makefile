@@ -17,12 +17,6 @@
 #==============================================================================#
 ## VARIABLES
 MAKEFLAGS += --no-print-directory
-ifeq (,$(shell command -v bash 2>/dev/null))
-  SHELL := /bin/sh
-  $(warning Bash not found, using default shell.)
-else
-  SHELL := /bin/bash
-endif
 
 NAME                    =       megaphone
 CC                      =       c++
@@ -47,48 +41,48 @@ DOTS                    =       $(shell printf ".%.0s" $(shell seq $(TOTAL_FILES
 #==============================================================================#
 ## RULES
 all:                            $(DIR_OBJ) $(NAME)
-				@echo "$(GREEN)🎉 Build complete! $(NAME) has been created. 🎉$(NC)"
+				@printf "$(GREEN)🎉 Build complete! $(NAME) has been created. 🎉$(NC)\n"
 
 $(NAME):                        $(OBJS)
-				@echo "$(YELLOW)🔗 Linking objects into executable...$(NC)"
+				@printf "$(YELLOW)🔗 Linking objects into executable...$(NC)\n"
 				@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-				@echo "$(GREEN)✅ Executable $(NAME) created successfully! 🚀$(NC)"
+				@printf "$(GREEN)✅ Executable $(NAME) created successfully! 🚀$(NC)\n"
 
 $(DIR_OBJ):
 				@mkdir -p $(DIR_OBJ)
-				@echo "$(CYAN)📁 Created objects directory.$(NC)"
+				@printf "$(CYAN)📁 Created objects directory.$(NC)\n"
 
 $(DIR_OBJ)%.o: $(DIR_SRC)%.cpp
-				@$(eval COMPILED_FILES=$(shell echo $$(($(COMPILED_FILES) + 1))))
-				@DOTS_LEFT=$(shell echo "$(DOTS)" | cut -c$(COMPILED_FILES)-) ; \
+				@$(eval COMPILED_FILES=$(shell printf $$(($(COMPILED_FILES) + 1))))
+				@DOTS_LEFT=$(shell printf "$(DOTS)" | cut -c$(COMPILED_FILES)-) ; \
 				printf "\r$(CYAN)🔄 Compiling: $< $(COMPILED_FILES)/$(TOTAL_FILES)$(NC) 🟡%s"
 				@$(CC) $(CFLAGS) -c $< -o $@
 				@if [ $(COMPILED_FILES) -eq $(TOTAL_FILES) ]; then echo; fi
 
 clean:
-				@echo "$(YELLOW)🧹 Cleaning object files...$(NC)"
+				@printf "$(YELLOW)🧹 Cleaning object files...$(NC)\n"
 				@$(RM) -r $(DIR_OBJ)
-				@echo "$(GREEN)✨ Object files cleaned!$(NC)"
+				@printf "$(GREEN)✨ Object files cleaned!$(NC)\n"
 
 fclean:                         clean
-				@echo "$(YELLOW)🗑️ Cleaning $(NAME) executable...$(NC)"
+				@printf "$(YELLOW)🗑️ Cleaning $(NAME) executable...$(NC)\n"
 				@$(RM) $(NAME)
-				@echo "$(GREEN)🧼 Executable cleaned!$(NC)"
+				@printf "$(GREEN)🧼 Executable cleaned!$(NC)\n"
 
 re:                             fclean all
 
 help:
-				@echo "Using $(SHELL)"
-				@echo "$(CYAN)📚 Available targets:$(NC)"
-				@echo "$(GREEN)  make$(NC)        - Build the phonebook program"
-				@echo "$(GREEN)  make clean$(NC)  - Remove object files"
-				@echo "$(GREEN)  make fclean$(NC) - Remove object files and executable"
-				@echo "$(GREEN)  make re$(NC)     - Rebuild from scratch"
-				@echo "$(GREEN)  make help$(NC)   - Display this help message"
+				@printf "Using $(SHELL)\n"
+				@printf "$(CYAN)📚 Available targets:$(NC)\n"
+				@printf "$(GREEN)  make$(NC)        - Build the phonebook program\n"
+				@printf "$(GREEN)  make clean$(NC)  - Remove object files\n"
+				@printf "$(GREEN)  make fclean$(NC) - Remove object files and executable\n"
+				@printf "$(GREEN)  make re$(NC)     - Rebuild from scratch\n"
+				@printf "$(GREEN)  make help$(NC)   - Display this help message\n"
 debug:
-				@type -a echo
-				@echo "$(CYAN)📚 Available targets:$(NC)"
-				@echo -e "\e[0;33m???? Cleaning object files...\e[0m"
+				@type -a printf
+				@printf "$(CYAN)📚 Available targets:$(NC)\n"
+				@printf  "\e[0;33m???? Cleaning object files...\e[0m\n"
 				@locale
 				@bash --version
 		        @printf "\x1b[0;33m???? Cleaning object files...\x1b[0m\n"
