@@ -17,6 +17,12 @@
 #==============================================================================#
 ## VARIABLES
 MAKEFLAGS += --no-print-directory
+ifeq (,$(shell command -v bash 2>/dev/null))
+  SHELL := /bin/sh
+  $(warning Bash not found, using default shell.)
+else
+  SHELL := /bin/bash
+endif
 
 NAME                    =       megaphone
 CC                      =       c++
@@ -72,13 +78,21 @@ fclean:                         clean
 re:                             fclean all
 
 help:
+				@echo "Using $(SHELL)"
 				@echo "$(CYAN)📚 Available targets:$(NC)"
 				@echo "$(GREEN)  make$(NC)        - Build the phonebook program"
 				@echo "$(GREEN)  make clean$(NC)  - Remove object files"
 				@echo "$(GREEN)  make fclean$(NC) - Remove object files and executable"
 				@echo "$(GREEN)  make re$(NC)     - Rebuild from scratch"
 				@echo "$(GREEN)  make help$(NC)   - Display this help message"
-				
+debug:
+				@type -a echo
+				@echo "$(CYAN)📚 Available targets:$(NC)"
+				@echo -e "\e[0;33m???? Cleaning object files...\e[0m"
+				@locale
+				@bash --version
+		        @printf "\x1b[0;33m???? Cleaning object files...\x1b[0m\n"
+
 #==============================================================================#
 ## COLORS
 GREEN = \033[0;32m
