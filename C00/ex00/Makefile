@@ -79,13 +79,6 @@ help:
 				@printf "$(GREEN)  make fclean$(NC) - Remove object files and executable\n"
 				@printf "$(GREEN)  make re$(NC)     - Rebuild from scratch\n"
 				@printf "$(GREEN)  make help$(NC)   - Display this help message\n"
-debug:
-				@type -a printf
-				@printf "$(CYAN)📚 Available targets:$(NC)\n"
-				@printf  "\e[0;33m???? Cleaning object files...\e[0m\n"
-				@locale
-				@bash --version
-		        @printf "\x1b[0;33m???? Cleaning object files...\x1b[0m\n"
 
 #==============================================================================#
 ## COLORS

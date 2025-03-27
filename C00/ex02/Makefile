@@ -6,7 +6,7 @@
 #    By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/21 18:14:54 by pracksaw          #+#    #+#              #
-#    Updated: 2025/03/11 20:24:13 by pracksaw         ###   ########.fr        #
+#    Updated: 2025/03/27 19:03:31 by pracksaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,38 +43,38 @@ NC                      =       \033[0m
 #==============================================================================#
 ## RULES 🔨
 all:                            $(NAME)
-				@echo "$(GREEN)🎉 Tests have been successfully compiled! 🎉$(NC)"
+				@printf "$(GREEN)🎉 Tests have been successfully compiled! 🎉$(NC)\n"
 
 $(NAME):                        $(OBJ_FILES)
-				@echo "$(YELLOW)🔗 Linking objects into executable...$(NC)"
+				@printf "$(YELLOW)🔗 Linking objects into executable...$(NC)\n"
 				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ_FILES)
-				@echo "$(GREEN)✅ Executable $(NAME) created! 🧪$(NC)"
+				@printf "$(GREEN)✅ Executable $(NAME) created! 🧪$(NC)\n"
 
 account.o: account.cpp account.hpp Account.hpp
-				@echo "$(CYAN)🔄 Compiling: account.cpp$(NC)"
+				@printf "$(CYAN)🔄 Compiling: account.cpp$(NC)\n"
 				@$(CXX) $(CXXFLAGS) -c account.cpp -o account.o
 
 clean:
-				@echo "$(YELLOW)🧹 Cleaning object files...$(NC)"
+				@printf "$(YELLOW)🧹 Cleaning object files...$(NC)\n"
 				@rm -f $(OBJ_FILES)
-				@echo "$(GREEN)✨ Object files cleaned!$(NC)"
+				@printf "$(GREEN)✨ Object files cleaned!$(NC)\n"
 
 fclean:                         clean
-				@echo "$(YELLOW)🗑️  Cleaning $(NAME) executable...$(NC)"
+				@printf "$(YELLOW)🗑️  Cleaning $(NAME) executable...$(NC)\n"
 				@rm -f $(NAME)
-				@echo "$(GREEN)🧼 All cleaned up!$(NC)"
+				@printf "$(GREEN)🧼 All cleaned up!$(NC)\n"
 
 re:                             fclean all
-				@echo "$(PURPLE)🔄 Project rebuilt from scratch! 🔄$(NC)"
+				@printf "$(PURPLE)🔄 Project rebuilt from scratch! 🔄$(NC)\n"
 
 #==============================================================================#
 ## ADDITIONAL HELPERS 💡
 .PHONY:                         all clean fclean re help
 
 help:
-				@echo "$(CYAN)📚 Available targets:$(NC)"
-				@echo "$(GREEN)  make$(NC)        - Build the tests program"
-				@echo "$(GREEN)  make clean$(NC)  - Remove object files"
-				@echo "$(GREEN)  make fclean$(NC) - Remove object files and executable"
-				@echo "$(GREEN)  make re$(NC)     - Rebuild from scratch"
-				@echo "$(GREEN)  make help$(NC)   - Display this help message"
+				@printf "$(CYAN)📚 Available targets:$(NC)\n"
+				@printf "$(GREEN)  make$(NC)        - Build the tests program\n"
+				@printf "$(GREEN)  make clean$(NC)  - Remove object files\n"
+				@printf "$(GREEN)  make fclean$(NC) - Remove object files and executable\n"
+				@printf "$(GREEN)  make re$(NC)     - Rebuild from scratch\n"
+				@printf "$(GREEN)  make help$(NC)   - Display this help message\n"
