@@ -6,7 +6,7 @@
 /*   By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:09:09 by pracksaw          #+#    #+#             */
-/*   Updated: 2025/03/09 18:15:30 by pracksaw         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:29:20 by pracksaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	{
 		std::string arg = argv[i];
 		for (size_t i = 0; i < arg.length(); ++i) 
-			arg[i] = toupper(arg[i]);
+			arg[i] = std::toupper(arg[i]);
 		std::cout << arg;
 	}
 	std::cout << std::endl;
