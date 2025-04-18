@@ -6,12 +6,13 @@
 /*   By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:09:09 by pracksaw          #+#    #+#             */
-/*   Updated: 2025/04/10 18:29:20 by pracksaw         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:48:03 by pracksaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cctype>
 
 int main(int argc, char **argv) 
 {
