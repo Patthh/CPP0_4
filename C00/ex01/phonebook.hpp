@@ -6,7 +6,7 @@
 /*   By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:16:55 by pracksaw          #+#    #+#             */
-/*   Updated: 2025/03/13 19:25:31 by pracksaw         ###   ########.fr       */
+/*   Updated: 2025/04/21 20:23:50 by pracksaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ class Contact{
 		str	darkest_secret;
 
 	public:
-		Contact(void);
-		~Contact(void);
+		Contact(void);										// Constructor
+		Contact(const Contact& other);						// Copy constructor
+		Contact& operator=(const Contact& other);			// Copy assignment operator
+		~Contact(void);										// Destructor
  
 		int			checkPrintable(str s);
 		str			getFirst_name(void);
@@ -55,8 +57,9 @@ class PhoneBook{
 		unsigned int	contacts_amount;
 		
 	public:
-	
 		PhoneBook(void);
+		PhoneBook(const PhoneBook& other);
+		PhoneBook& operator=(const PhoneBook& other);
 		~PhoneBook(void);
 
 		void	clearScreenANSI(void);
