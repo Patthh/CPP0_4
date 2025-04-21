@@ -6,7 +6,7 @@
 #    By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/21 18:14:54 by pracksaw          #+#    #+#              #
-#    Updated: 2025/03/27 19:03:31 by pracksaw         ###   ########.fr        #
+#    Updated: 2025/04/21 19:52:42 by pracksaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 ## VARIABLES 🧩
 CXX                     =       c++
-CXXFLAGS                =       -Wall -Wextra -Werror -std=c++98
+CXXFLAGS                =       -Wall -Wextra -Werror -std=c++98 
 NAME                    =       tests
 
 #==============================================================================#

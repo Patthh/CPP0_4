@@ -6,13 +6,10 @@
 /*   By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 18:15:19 by pracksaw          #+#    #+#             */
-/*   Updated: 2025/03/11 20:28:46 by pracksaw         ###   ########.fr       */
+/*   Updated: 2025/04/21 20:07:02 by pracksaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctime>
-#include <iomanip>
-#include <iostream>
 #include "Account.hpp"
 
 int Account::_nbAccounts = 0;
@@ -71,19 +68,12 @@ int Account::getNbWithdrawals(void) {
 
 void Account::_displayTimestamp(void) {
     time_t rawTime;
-    struct tm* timeInfo;
-
     time(&rawTime);
-    timeInfo = localtime(&rawTime);
 
-    std::cout << "["
-              << std::setfill('0') 
-              << std::setw(4) << (timeInfo->tm_year + 1900)
-              << std::setw(2) << timeInfo->tm_mon
-              << std::setw(2) << timeInfo->tm_mday << "_"
-              << std::setw(2) << timeInfo->tm_hour
-              << std::setw(2) << timeInfo->tm_min
-              << std::setw(2) << timeInfo->tm_sec << "] ";
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", localtime(&rawTime));
+
+    std::cout << buffer;
 }
 
 void Account::makeDeposit(int deposit) {
