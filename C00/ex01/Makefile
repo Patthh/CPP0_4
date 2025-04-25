@@ -6,7 +6,7 @@
 #    By: pracksaw <pracksaw@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/21 18:16:33 by pracksaw          #+#    #+#              #
-#    Updated: 2025/03/29 16:35:50 by pracksaw         ###   ########.fr        #
+#    Updated: 2025/04/25 18:07:11 by pracksaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ NAME                    =       phonebook
 
 #==============================================================================#
 ## FILES 📄
-SRC_FILES               =       phonebook.cpp
-HDR_FILES               =       phonebook.hpp colors.hpp
+SRC_FILES               =       PhoneBook.cpp Contact.cpp main.cpp
+HDR_FILES               =       PhoneBook.hpp Contact.hpp Colors.hpp
 OBJ_FILES               =       $(SRC_FILES:.cpp=.o)
 
 #==============================================================================#
@@ -50,15 +50,11 @@ $(NAME):                        $(OBJ_FILES)
 				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ_FILES)
 				@printf "$(GREEN)✅ Executable $(NAME) created! 📞$(NC)\n"
 
-%.o: %.cpp %.hpp
+%.o: %.cpp
 				@$(eval COMPILED_FILES=$(shell echo $$(($(COMPILED_FILES) + 1))))
 				@printf "\r$(CYAN)🔄 Compiling: $< $(COMPILED_FILES)/$(TOTAL_FILES)$(NC) 🟡"
 				@$(CXX) $(CXXFLAGS) -c $< -o $@
 				@if [ $(COMPILED_FILES) -eq $(TOTAL_FILES) ]; then echo; fi
-
-phonebook.o: phonebook.cpp phonebook.hpp
-				@printf "$(CYAN)🔄 Compiling: phonebook.cpp$(NC)\n"
-				@$(CXX) $(CXXFLAGS) -c phonebook.cpp -o phonebook.o
 
 clean:
 				@printf "$(YELLOW)🧹 Cleaning object files...$(NC)\n"
